@@ -1,0 +1,471 @@
+<!doctype html>
+<!-- ШАБЛОНЫ СЛАЙДОВ KONTUR DECK. НЕ ИЗОБРЕТАЙ ВЁРСТКУ — КОПИРУЙ СЛАЙД ОТСЮДА И МЕНЯЙ КОНТЕНТ.
+     Правила: один слайд = одна мысль. Один ведущий акцент (класс acc-* на .slide).
+     Лимиты знаков в комментариях — жёсткие: не влезает — режь текст, а не шрифт.
+     Полный цикл сборки: SKILL.md. Дизайн-принципы: DESIGN-RULES.md. Проверка: node render.js deck.html -->
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Kontur Deck — шаблоны</title>
+<link rel="stylesheet" href="kontur-deck.css">
+</head>
+<body class="k-dark">
+<div class="deck">
+
+<!-- ============ 1. ТИТУЛ (s-title) ============
+     h1 ≤ 50 знаков (2 строки макс.) · sub ≤ 120 знаков · klabel ≤ 40 знаков.
+     accent-block справа опционален; на нём можно разместить крупный «+» или дату. -->
+<section class="slide s-title acc-purple">
+  <div class="brand">Контур</div>
+  <div class="klabel" style="position:absolute;left:96px;top:120px;">Стратегическая сессия · 14 июля 2026</div>
+  <div class="body">
+    <h1>Название деки в две строки</h1>
+    <p class="sub">Подзаголовок: кто, для чего и по какой фактуре собран этот материал.</p>
+  </div>
+  <div class="accent-block bg-acc">
+    <div class="plus" style="right:64px;bottom:48px;font-size:200px;color:rgba(255,255,255,.35);">+</div>
+  </div>
+</section>
+
+<!-- ============ 2. РАЗДЕЛ (s-divider) ============
+     Номер раздела 1-2 символа · h2 ≤ 60 знаков · подпись ≤ 110 знаков. -->
+<section class="slide s-divider acc-purple">
+  <div class="brand">Контур</div>
+  <div class="num-section c-acc">01</div>
+  <div class="title">
+    <h2>Название раздела</h2>
+    <p class="muted" style="margin-top:20px;font-size:26px;">Одна строка о том, что внутри раздела.</p>
+  </div>
+  <div class="page">3</div>
+</section>
+
+<!-- ============ 3. КРУПНЫЙ ТЕЗИС (s-thesis) ============
+     h1 ≤ 90 знаков. Ключевое слово/цифру — в <span class="c-acc">.
+     Это самый сильный слайд: не разбавляй его списками. -->
+<section class="slide s-thesis acc-teal">
+  <div class="brand">Контур</div>
+  <div class="body">
+    <h1>Главная мысль слайда, где <span class="c-acc">ключевое</span> выделено цветом</h1>
+  </div>
+  <div class="page">4</div>
+</section>
+
+<!-- ============ 4. ДВЕ ЦИФРЫ (s-num2) ============
+     h2 ≤ 60 знаков · big-num ≤ 6 символов + unit · num-label ≤ 90 знаков. -->
+<section class="slide s-num2 acc-orange">
+  <div class="brand">Контур</div>
+  <div class="top"><h2>Заголовок про цифры</h2></div>
+  <div class="cols">
+    <div>
+      <div class="big-num c-acc">87<span class="unit">%</span></div>
+      <p class="num-label">Что означает первая цифра, одной строкой.</p>
+    </div>
+    <div>
+      <div class="big-num">1,64</div>
+      <p class="num-label">Что означает вторая цифра, одной строкой.</p>
+    </div>
+  </div>
+  <div class="page">5</div>
+</section>
+
+<!-- ============ 5. ШЕСТЬ ЦИФР (s-num6) ============
+     h2 ≤ 60 знаков · n ≤ 8 символов · l ≤ 60 знаков. Ровно 6 ячеек, не 5 и не 7. -->
+<section class="slide s-num6 acc-blue">
+  <div class="brand">Контур</div>
+  <div class="top"><h2>Сегмент в цифрах</h2></div>
+  <div class="grid">
+    <div class="cell"><div class="n">944<span style="font-size:48px;color:var(--k-grey);"> тыс.</span></div><div class="l">клиентов в сегменте</div></div>
+    <div class="cell"><div class="n c-acc">65,5%</div><div class="l">всей маржи компании</div></div>
+    <div class="cell"><div class="n">108%</div><div class="l">NRR за 2025 год</div></div>
+    <div class="cell"><div class="n">27%</div><div class="l">проникновение в сегмент</div></div>
+    <div class="cell"><div class="n">1,64</div><div class="l">продукта на клиента</div></div>
+    <div class="cell"><div class="n">17,7<span style="font-size:48px;color:var(--k-grey);"> млрд ₽</span></div><div class="l">маржа сегмента</div></div>
+  </div>
+  <div class="page">6</div>
+</section>
+
+<!-- ============ 6. ТРИ КАРТОЧКИ (s-cards c3) ============
+     h2 ≤ 60 знаков · h3 карточки ≤ 40 знаков · p карточки ≤ 220 знаков.
+     Вариант: одна карточка акцентная (bg-acc), две neutral. Для 2 карточек класс c2. -->
+<section class="slide s-cards c3 acc-purple">
+  <div class="brand">Контур</div>
+  <div class="top"><h2>Три ключевых манёвра</h2></div>
+  <div class="cards">
+    <div class="card bg-acc">
+      <h3>Первый манёвр</h3>
+      <p>Суть манёвра в 2-3 предложениях. Что делаем, на какую метрику влияет и почему это сработает.</p>
+    </div>
+    <div class="card neutral">
+      <h3>Второй манёвр</h3>
+      <p>Суть манёвра в 2-3 предложениях без воды.</p>
+    </div>
+    <div class="card neutral">
+      <h3>Третий манёвр</h3>
+      <p>Суть манёвра в 2-3 предложениях без воды.</p>
+    </div>
+  </div>
+  <div class="page">7</div>
+</section>
+
+<!-- ============ 7. ДВЕ КОЛОНКИ ТЕКСТА (s-cols c2) ============
+     h2 ≤ 60 знаков · h3 колонки ≤ 40 знаков · p колонки ≤ 400 знаков. Для 3 колонок класс c3, p ≤ 260. -->
+<section class="slide s-cols c2 acc-teal">
+  <div class="brand">Контур</div>
+  <div class="top"><h2>Что решили и что осталось открытым</h2></div>
+  <div class="cols">
+    <div class="col">
+      <h3 class="c-acc">Решили</h3>
+      <p>Первый абзац с решениями группы. Пиши фактами, без канцелярита, каждое предложение несёт смысл.</p>
+    </div>
+    <div class="col">
+      <h3>Открытые вопросы</h3>
+      <p>Второй абзац: что группа оставила на дорешение, кому передали и к какому сроку.</p>
+    </div>
+  </div>
+  <div class="page">8</div>
+</section>
+
+<!-- ============ 8. НУМЕРОВАННЫЙ СПИСОК (s-list) ============
+     h2 ≤ 60 знаков · 3-5 строк (НЕ больше 5) · t ≤ 130 знаков · note ≤ 100 знаков (опц.). -->
+<section class="slide s-list acc-orange">
+  <div class="brand">Контур</div>
+  <div class="top"><h2>Приоритеты на квартал</h2></div>
+  <div class="rows">
+    <div class="row"><div class="n">1</div><div class="t"><b>Первый пункт</b>: суть одной строкой.<span class="note">Пояснение или владелец, если нужно.</span></div></div>
+    <div class="row"><div class="n">2</div><div class="t"><b>Второй пункт</b>: суть одной строкой.</div></div>
+    <div class="row"><div class="n">3</div><div class="t"><b>Третий пункт</b>: суть одной строкой.</div></div>
+    <div class="row"><div class="n">4</div><div class="t"><b>Четвёртый пункт</b>: суть одной строкой.</div></div>
+  </div>
+  <div class="page">9</div>
+</section>
+
+<!-- ============ 9. ТАБЛИЦА (s-table) ============
+     h2 ≤ 60 знаков · до 5 колонок · до 7 строк тела · ячейка ≤ 90 знаков.
+     Больше данных = дели на два слайда, а не ужимай. -->
+<section class="slide s-table acc-blue">
+  <div class="brand">Контур</div>
+  <div class="top"><h2>Ставки по доменам</h2></div>
+  <div class="tbl">
+    <table>
+      <tr><th>Домен</th><th>Ставка</th><th>Метрика</th><th>Статус</th></tr>
+      <tr><td class="key">Awareness</td><td>Единая охватная коммуникация</td><td>Брендовые запросы</td><td class="c-acc">Гипотеза</td></tr>
+      <tr><td class="key">Acquisition</td><td>Снижение CAC через self-service</td><td>CAC, payback</td><td>Решено</td></tr>
+      <tr><td class="key">Retention</td><td>Предиктивный предотток</td><td>NRR, churn</td><td>Решено</td></tr>
+    </table>
+  </div>
+  <div class="page">10</div>
+</section>
+
+<!-- ============ 10. ТАЙМЛАЙН (s-timeline) ============
+     h2 ≤ 60 знаков · 3-5 шагов · h3 шага ≤ 30 знаков · p шага ≤ 110 знаков. -->
+<section class="slide s-timeline acc-purple">
+  <div class="brand">Контур</div>
+  <div class="top"><h2>Дорожная карта</h2></div>
+  <div class="line"></div>
+  <div class="steps">
+    <div class="step"><div class="dot"></div><h3>Июль</h3><p>Что происходит на первом шаге.</p></div>
+    <div class="step"><div class="dot" style="opacity:.55"></div><h3>Август</h3><p>Что происходит на втором шаге.</p></div>
+    <div class="step"><div class="dot" style="opacity:.35"></div><h3>Сентябрь</h3><p>Что происходит на третьем шаге.</p></div>
+    <div class="step"><div class="dot" style="opacity:.2"></div><h3>Октябрь</h3><p>Чем заканчивается квартал.</p></div>
+  </div>
+  <div class="page">11</div>
+</section>
+
+<!-- ============ 11. СПЛИТ: ТЕКСТ + ПАНЕЛЬ (s-split) ============
+     h2 ≤ 60 знаков · left: 2-3 абзаца по ≤ 220 знаков · panel h3 ≤ 40, p ≤ 280 знаков. -->
+<section class="slide s-split acc-teal">
+  <div class="brand">Контур</div>
+  <div class="top"><h2>Контекст и главный вывод</h2></div>
+  <div class="wrap">
+    <div class="left">
+      <p>Первый абзац рассказа: что обсуждали и на какой фактуре. Нормальные предложения, не обрубки.</p>
+      <p>Второй абзац: к чему пришли и что это меняет для команды.</p>
+    </div>
+    <div class="panel">
+      <h3 class="c-acc">Вывод</h3>
+      <p>Главная мысль слайда, вынесенная в панель. Одна-две фразы, которые запомнятся.</p>
+    </div>
+  </div>
+  <div class="page">12</div>
+</section>
+
+<!-- ============ 12. ЦИТАТА (s-quote) ============
+     blockquote ≤ 180 знаков · who ≤ 60 знаков. Цитаты дословные, не пересказ. -->
+<section class="slide s-quote acc-orange">
+  <div class="brand">Контур</div>
+  <div class="body">
+    <span class="mark">«</span>
+    <blockquote>Дословная цитата участника, которая держит весь слайд.</blockquote>
+    <p class="who">Имя Фамилия, роль</p>
+  </div>
+  <div class="page">13</div>
+</section>
+
+<!-- ============ 13. ФОТО НА ПОЛСЛАЙДА (s-photo-half) ============
+     h2 ≤ 55 знаков · 2-3 абзаца по ≤ 200 знаков. Фото: замени ph-placeholder
+     на style="background-image:url('img/фото.jpg')". Тёмная тема. -->
+<section class="slide s-photo-half acc-purple">
+  <div class="brand">Контур</div>
+  <div class="content">
+    <h2>Заголовок рядом с фото</h2>
+    <p>Первый абзац: контекст. Фото занимает правую половину, текст дышит слева.</p>
+    <p>Второй абзац: вывод или деталь, которая связывает текст с картинкой.</p>
+  </div>
+  <div class="ph ph-placeholder"><div class="edge"></div></div>
+  <div class="page">13</div>
+</section>
+
+<!-- ============ 14. ФОТО-ОВЕРЛЕЙ (s-photo-overlay) ============
+     h1 ≤ 60 знаков · sub ≤ 140 знаков. Фото на весь слайд + затемнение снизу.
+     Для титулов секций с настроением и хедлайнеров. -->
+<section class="slide s-photo-overlay">
+  <div class="ph ph-placeholder"></div>
+  <div class="veil"></div>
+  <div class="brand" style="z-index:2;">Контур</div>
+  <div class="body">
+    <h1>Крупный хедлайн поверх фото</h1>
+    <p class="sub">Подпись: одна строка, которая уточняет мысль хедлайна.</p>
+  </div>
+</section>
+
+<!-- ============ 15. МЕГА-ЦИФРА (s-mega) ============
+     num ≤ 5 символов (или одно слово ≤ 10 букв, тогда font-size уменьшить до 240px)
+     · cap ≤ 120 знаков. Самый сильный акцент в деке, не чаще 1-2 раз. -->
+<section class="slide s-mega acc-teal">
+  <div class="brand">Контур</div>
+  <div>
+    <div class="num c-acc">×3</div>
+    <p class="cap">Что означает эта цифра и почему она меняет картину.</p>
+  </div>
+  <div class="page">15</div>
+</section>
+
+<!-- ============ 16. СТОЛБЧАТАЯ ДИАГРАММА (s-bars) ============
+     h2 ≤ 60 знаков · 4-6 столбиков · v ≤ 8 символов · l ≤ 30 знаков.
+     Высота: inline height в % на .fill (максимальный = 100%). Один столбик hot. -->
+<section class="slide s-bars acc-orange">
+  <div class="brand">Контур</div>
+  <div class="top"><h2>Сравнение по сегментам</h2></div>
+  <div class="chart">
+    <div class="bar"><div class="v">12%</div><div class="fill" style="height:18%"></div><div class="l">Микро</div></div>
+    <div class="bar"><div class="v">27%</div><div class="fill" style="height:40%"></div><div class="l">Малый</div></div>
+    <div class="bar hot"><div class="v c-acc">65%</div><div class="fill" style="height:100%"></div><div class="l">Средний</div></div>
+    <div class="bar"><div class="v">44%</div><div class="fill" style="height:66%"></div><div class="l">Крупный</div></div>
+  </div>
+  <div class="page">16</div>
+</section>
+
+<!-- ============ 17. ОРГ-СТРУКТУРА (s-org) ============
+     h2 ≤ 60 знаков · корень ≤ 30 знаков · 3-4 ветки · ветка ≤ 25 знаков · sub ≤ 60 знаков.
+     Глубже двух уровней не лезь: это слайд, а не схема процессов. -->
+<section class="slide s-org acc-blue">
+  <div class="brand">Контур</div>
+  <div class="top"><h2>Как устроена команда</h2></div>
+  <div class="tree">
+    <div class="node root">Управление маркетинга</div>
+    <div class="trunk"></div>
+    <div class="rail"></div>
+    <div class="branches">
+      <div class="branch"><div class="drop"></div><div class="node">Сегменты</div><div class="sub">4 стола макросегментов</div></div>
+      <div class="branch"><div class="drop"></div><div class="node">Домены</div><div class="sub">Awareness / Acq / Ret</div></div>
+      <div class="branch"><div class="drop"></div><div class="node">Инструменты</div><div class="sub">Каналы и платформы</div></div>
+      <div class="branch"><div class="drop"></div><div class="node">Данные</div><div class="sub">Аналитика и скоринг</div></div>
+    </div>
+  </div>
+  <div class="page">17</div>
+</section>
+
+<!-- ============ 18. ЛЕСЕНКА (s-stairs) ============
+     h2 ≤ 60 знаков · ровно 4 ступени (h1x/h2x/h3x/h4x) · h3 ≤ 25 знаков · p ≤ 110 знаков.
+     Для уровней зрелости, эволюции, роста. Верхняя ступень hot. -->
+<section class="slide s-stairs acc-purple">
+  <div class="brand">Контур</div>
+  <div class="top"><h2>Уровни зрелости работы с данными</h2></div>
+  <div class="steps">
+    <div class="st h1x"><h3>Уровень 1</h3><p>Ручные выгрузки по запросу.</p></div>
+    <div class="st h2x"><h3>Уровень 2</h3><p>Регулярные дашборды.</p></div>
+    <div class="st h3x"><h3>Уровень 3</h3><p>Сегментация и скоринг.</p></div>
+    <div class="st h4x hot"><h3>Уровень 4</h3><p>Предиктивные модели в контуре решений.</p></div>
+  </div>
+  <div class="page">18</div>
+</section>
+
+<!-- ============ 19. БЕНТО (s-bento) ============
+     h2 ≤ 60 знаков · большая ячейка: h3 ≤ 40 + p ≤ 260 · малые: kn ≤ 6 символов
+     или h3 ≤ 30, p ≤ 90. Одна ячейка hot. Смесь цифр и тезисов - в этом суть бенто. -->
+<section class="slide s-bento acc-teal">
+  <div class="brand">Контур</div>
+  <div class="top"><h2>Сегмент одним взглядом</h2></div>
+  <div class="grid">
+    <div class="b wide">
+      <h3>Главный вывод</h3>
+      <p>Развёрнутый тезис на 2-3 предложения: что происходит в сегменте и что мы с этим делаем. Это якорная ячейка композиции.</p>
+    </div>
+    <div class="b"><div class="kn c-acc">108%</div><p>NRR за год</p></div>
+    <div class="b"><div class="kn">27%</div><p>проникновение</p></div>
+    <div class="b hot"><h3>Ставка</h3><p>Retention и cross-sell на текущей базе.</p></div>
+    <div class="b"><div class="kn">1,64</div><p>продукта на клиента</p></div>
+  </div>
+  <div class="page">19</div>
+</section>
+
+<!-- ============ 20. ФИНАЛ (s-final) ============
+     h1 ≤ 40 знаков · contacts ≤ 80 знаков. Фон: сливовый (bg-plum на .slide через style) или тёмный. -->
+<section class="slide s-final" style="background:var(--plum);color:#fff;">
+  <div class="brand">Контур</div>
+  <div>
+    <h1>Есть вопросы? Давайте обсудим</h1>
+    <p class="contacts">Имя Фамилия · почта · телеграм</p>
+  </div>
+</section>
+
+<!-- ============ 21. ОБЛОЖКА С АРТ-ПАНЕЛЬЮ (s-cover) ============
+     klabel ≤ 40 знаков · h1 ≤ 36 знаков (2-3 строки по ~14) · sub ≤ 130 знаков.
+     Арт-панель и вордмарк - готовые SVG, контент не менять, только текст слева.
+     Проверено на деке «Вопрос №3 КСР» (утв. 17.07.2026). -->
+<section class="slide s-cover acc-purple">
+  <div class="head">
+    <span class="klabel">Контекст · Событие · Дата</span>
+    <h1>Название деки в&nbsp;три строки</h1>
+    <p class="sub">Подзаголовок: кто, для чего и по какой фактуре собран материал, одной-двумя фразами.</p>
+  </div>
+  <div class="wordmark"><svg viewBox="0 0 68 24" xmlns="http://www.w3.org/2000/svg"><path d="M13.424 13.931c0 1.083.251 2.033.753 2.851a4.986 4.986 0 0 0 2 1.842 5.875 5.875 0 0 0 2.732.653c.977 0 1.888-.218 2.732-.653a4.81 4.81 0 0 0 1.98-1.861c.489-.806.733-1.75.733-2.832 0-1.095-.244-2.046-.733-2.851a4.654 4.654 0 0 0-1.96-1.782c-.818-.41-1.736-.614-2.752-.614-.99 0-1.9.205-2.732.614a4.654 4.654 0 0 0-2.02 1.822c-.488.792-.733 1.729-.733 2.811zm45.125 8.613v-4.673c.303.515.732.872 1.287 1.07.567.198 1.28.297 2.138.297.462 0 .91-.06 1.346-.179.45-.105.832-.27 1.149-.495.7-.435 1.24-1.049 1.623-1.841.396-.805.594-1.73.594-2.772 0-1.003-.191-1.92-.574-2.752-.396-.792-.95-1.4-1.663-1.822-.713-.435-1.538-.653-2.475-.653-.884 0-1.617.138-2.198.416-.58.277-1.05.686-1.406 1.227V9.001h-2.237v13.543h2.416zm-9.207-3.188c-.106.29-.218.509-.337.654-.304.422-.858.633-1.663.633-.396 0-.706-.026-.93-.079l.811 1.901c.026.013.25.02.673.02.726 0 1.314-.119 1.762-.357a2.937 2.937 0 0 0 1.07-.99c.29-.435.594-1.082.91-1.94l3.683-10.197h-2.415a116.906 116.906 0 0 0-2.376 7.286 149.062 149.062 0 0 0-2.456-7.286H45.54l3.802 10.355zM15.86 13.911c0-1.056.257-1.86.772-2.415.515-.555 1.254-.832 2.218-.832.963 0 1.709.277 2.237.832.528.554.792 1.36.792 2.415 0 1.083-.264 1.914-.792 2.495-.528.581-1.274.871-2.237.871-.95 0-1.69-.283-2.218-.851-.515-.58-.772-1.419-.772-2.515zm42.63.02c.026-1.003.29-1.788.791-2.356.515-.58 1.221-.871 2.119-.871.897 0 1.597.29 2.099.871.501.58.759 1.366.772 2.356-.013 1.003-.27 1.802-.772 2.396-.502.58-1.202.871-2.1.871-.897 0-1.603-.29-2.118-.871-.501-.594-.765-1.393-.792-2.396zM11.107 4.942 6.91 10.506H4.792V4.942H1.643L.376 7.298h1.901V19h2.515v-6.316H6.91L11.326 19h2.87l-5.128-7.405 4.891-6.653h-2.851zM28.037 19v-4.217h4.098V19h2.376V9.001h-2.376v3.802h-4.098V9H25.64V19h2.396zm10.89-8.098V19h2.435v-8.098h3.406V9H35.56v1.9h3.366z"/></svg></div>
+  <div class="artblock">
+    <svg viewBox="0 0 620 844" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+      <rect width="620" height="844" fill="#844BEC"/>
+      <polygon points="12,252 136,162 556,412 556,832 12,832" fill="#FC7630" stroke="#FC7630" stroke-width="24" stroke-linejoin="round"/>
+      <path d="M 236 56 C 420 -4 634 66 626 244" fill="none" stroke="#FEFFFE" stroke-width="6" stroke-linecap="round"/>
+      <path d="M 626 540 C 520 662 330 640 258 512" fill="none" stroke="#FEFFFE" stroke-width="6" stroke-linecap="round"/>
+      <path d="M 366 366 V 574 M 262 470 H 470" fill="none" stroke="#FEFFFE" stroke-width="7" stroke-linecap="round"/>
+    </svg>
+  </div>
+</section>
+
+<!-- ============ 22. ФИНАЛ С АРТ-ПАНЕЛЬЮ (s-cover, вариант финала) ============
+     h1 ≤ 20 знаков (2 строки). Вместо contacts можно добавить .sub. Пара к шаблону 21. -->
+<section class="slide s-cover">
+  <div class="head">
+    <h1>Спасибо!<br>Вопросы?</h1>
+  </div>
+  <div class="wordmark"><svg viewBox="0 0 68 24" xmlns="http://www.w3.org/2000/svg"><path d="M13.424 13.931c0 1.083.251 2.033.753 2.851a4.986 4.986 0 0 0 2 1.842 5.875 5.875 0 0 0 2.732.653c.977 0 1.888-.218 2.732-.653a4.81 4.81 0 0 0 1.98-1.861c.489-.806.733-1.75.733-2.832 0-1.095-.244-2.046-.733-2.851a4.654 4.654 0 0 0-1.96-1.782c-.818-.41-1.736-.614-2.752-.614-.99 0-1.9.205-2.732.614a4.654 4.654 0 0 0-2.02 1.822c-.488.792-.733 1.729-.733 2.811zm45.125 8.613v-4.673c.303.515.732.872 1.287 1.07.567.198 1.28.297 2.138.297.462 0 .91-.06 1.346-.179.45-.105.832-.27 1.149-.495.7-.435 1.24-1.049 1.623-1.841.396-.805.594-1.73.594-2.772 0-1.003-.191-1.92-.574-2.752-.396-.792-.95-1.4-1.663-1.822-.713-.435-1.538-.653-2.475-.653-.884 0-1.617.138-2.198.416-.58.277-1.05.686-1.406 1.227V9.001h-2.237v13.543h2.416zm-9.207-3.188c-.106.29-.218.509-.337.654-.304.422-.858.633-1.663.633-.396 0-.706-.026-.93-.079l.811 1.901c.026.013.25.02.673.02.726 0 1.314-.119 1.762-.357a2.937 2.937 0 0 0 1.07-.99c.29-.435.594-1.082.91-1.94l3.683-10.197h-2.415a116.906 116.906 0 0 0-2.376 7.286 149.062 149.062 0 0 0-2.456-7.286H45.54l3.802 10.355zM15.86 13.911c0-1.056.257-1.86.772-2.415.515-.555 1.254-.832 2.218-.832.963 0 1.709.277 2.237.832.528.554.792 1.36.792 2.415 0 1.083-.264 1.914-.792 2.495-.528.581-1.274.871-2.237.871-.95 0-1.69-.283-2.218-.851-.515-.58-.772-1.419-.772-2.515zm42.63.02c.026-1.003.29-1.788.791-2.356.515-.58 1.221-.871 2.119-.871.897 0 1.597.29 2.099.871.501.58.759 1.366.772 2.356-.013 1.003-.27 1.802-.772 2.396-.502.58-1.202.871-2.1.871-.897 0-1.603-.29-2.118-.871-.501-.594-.765-1.393-.792-2.396zM11.107 4.942 6.91 10.506H4.792V4.942H1.643L.376 7.298h1.901V19h2.515v-6.316H6.91L11.326 19h2.87l-5.128-7.405 4.891-6.653h-2.851zM28.037 19v-4.217h4.098V19h2.376V9.001h-2.376v3.802h-4.098V9H25.64V19h2.396zm10.89-8.098V19h2.435v-8.098h3.406V9H35.56v1.9h3.366z"/></svg></div>
+  <div class="artblock">
+    <svg viewBox="0 0 620 844" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+      <rect width="620" height="844" fill="#FC7630"/>
+      <path d="M 262 0 L 396 0 C 420 130 516 212 620 232 L 620 560 C 490 600 392 700 372 844 L 252 844 C 224 700 116 618 0 590 L 0 262 C 116 240 228 140 262 0 Z" fill="#844BEC"/>
+      <path d="M 492 646 C 626 528 556 340 418 324 C 300 310 238 396 262 478" fill="none" stroke="#FEFFFE" stroke-width="7" stroke-linecap="round"/>
+      <path d="M 262 478 L 206 436 M 262 478 L 282 412" fill="none" stroke="#FEFFFE" stroke-width="7" stroke-linecap="round"/>
+    </svg>
+  </div>
+</section>
+
+<!-- ============ 23. ПИЛЮЛИ (s-pills) ============
+     h2 ≤ 60 знаков · sub ≤ 80 знаков · 8-16 пилюль · текст пилюли ≤ 22 знаков.
+     Реестр однородного: продукты, команды, регионы, инструменты. Пилюли нейтральные,
+     акцент только в заголовке (span.c-acc). -->
+<section class="slide s-pills acc-orange">
+  <div class="brand">Контур</div>
+  <div class="top">
+    <h2>Фактура: <span class="c-acc">16 критичных продуктов</span></h2>
+    <p class="sub">Одна строка о том, как отбирали элементы реестра.</p>
+  </div>
+  <div class="pills">
+    <div class="pill">Диадок</div>
+    <div class="pill">Экстерн</div>
+    <div class="pill">Фокус</div>
+    <div class="pill">Эльба</div>
+    <div class="pill">Логистика</div>
+    <div class="pill">EDI</div>
+    <div class="pill">Налоговый мониторинг</div>
+    <div class="pill">Маркировка</div>
+  </div>
+  <div class="page">23</div>
+</section>
+
+<!-- ============ 24. СЕТКА ФАКТОВ + ПАНЕЛЬ (s-grid-panel) ============
+     h2 ≤ 60 знаков · ровно 6 карточек: b ≤ 24, span ≤ 64 · панель: h3 ≤ 22, 2-3 пункта по ≤ 66.
+     Обзор области одним слайдом: 6 коротких фактов + акцентный вывод справа. -->
+<section class="slide s-grid-panel acc-purple">
+  <div class="brand">Контур</div>
+  <div class="top"><h2>Где реальные ограничения</h2></div>
+  <div class="wrap">
+    <div class="grid">
+      <div class="item"><b>Первая область</b><span>Суть ограничения одной короткой фразой</span></div>
+      <div class="item"><b>Вторая область</b><span>Суть ограничения одной короткой фразой</span></div>
+      <div class="item"><b>Третья область</b><span>Суть ограничения одной короткой фразой</span></div>
+      <div class="item"><b>Четвёртая область</b><span>Суть ограничения одной короткой фразой</span></div>
+      <div class="item"><b>Пятая область</b><span>Суть ограничения одной короткой фразой</span></div>
+      <div class="item"><b>Шестая область</b><span>Суть ограничения одной короткой фразой</span></div>
+    </div>
+    <div class="panel">
+      <h3>Общий знаменатель</h3>
+      <ul>
+        <li>Первый сквозной вывод по всем шести карточкам.</li>
+        <li>Второй сквозной вывод, который запомнят.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="page">24</div>
+</section>
+
+<!-- ============ 25. ПОЛНОЦВЕТНЫЙ ДИВАЙДЕР (s-divider-full) ============
+     chip ≤ 20 знаков · num 1-2 цифры · h1 ≤ 50 знаков (2 строки) · sub ≤ 110 знаков.
+     Смена части в длинной деке. Фон задаёт acc-класс; для teal/orange добавь dark-ink. -->
+<section class="slide s-divider-full acc-purple">
+  <div class="brand">Контур</div>
+  <div class="num">04</div>
+  <div class="cap">
+    <span class="chip">Часть четвёртая</span>
+    <h1>Название части в одну-две строки</h1>
+    <p class="sub">Одна строка о том, что внутри этой части и зачем она аудитории.</p>
+  </div>
+</section>
+
+<!-- ============ 26. КРУПНЫЙ СКРИНШОТ СО СПЛИТОМ (s-shot-split) ============
+     chip ≤ 20 знаков · h2 ≤ 40 знаков (2 строки) · p ≤ 220 знаков · note ≤ 120 знаков (опц.).
+     Живой продукт крупно: скрин уходит за правый край. Замени .ph на <img src="...">
+     (высота растянется на 100%, ширина по пропорции). -->
+<section class="slide s-shot-split acc-teal">
+  <div class="brand">Контур</div>
+  <div class="txt">
+    <span class="chip">Живой кейс</span>
+    <h2>Что видим на экране</h2>
+    <p>Два-три предложения: что это за продукт, что именно происходит на скрине и почему это важно для рассказа.</p>
+  </div>
+  <div class="note">Сноска: откуда скрин и когда снят, если нужно.</div>
+  <div class="vis"><div class="ph ph-placeholder"></div></div>
+  <div class="page">26</div>
+</section>
+
+<!-- ============ 27. СКРИНШОТ-ВИТРИНА (s-shot) ============
+     h2 ≤ 60 знаков · cap ≤ 110 знаков. Скрин 70-80% площади. Замени .ph на <img src="...">. -->
+<section class="slide s-shot acc-blue">
+  <div class="brand">Контур</div>
+  <div class="top"><h2>Продукт крупным планом</h2></div>
+  <div class="frame"><div class="ph ph-placeholder"></div></div>
+  <div class="cap">Подпись: что на скрине и на что смотреть.</div>
+  <div class="page">27</div>
+</section>
+
+<!-- ============ 28. СПИКЕР (s-speaker) ============
+     chip ≤ 20 знаков · h1 = Имя Фамилия · role ≤ 60 знаков · 2-4 стат-чипа: n ≤ 6 симв., l ≤ 50.
+     Один чип hot (акцентный). Фото: замени ph-placeholder на background-image:url(...). -->
+<section class="slide s-speaker acc-purple">
+  <div class="brand">Контур</div>
+  <div class="info">
+    <span class="chip">О спикере</span>
+    <h1>Имя Фамилия</h1>
+    <p class="role">Роль и одна строка о том, почему этому человеку можно верить.</p>
+  </div>
+  <div class="stats">
+    <div class="stat hot"><div class="n">15+</div><div class="l">лет в предметной области</div></div>
+    <div class="stat"><div class="n">12</div><div class="l">лет в Контуре</div></div>
+    <div class="stat"><div class="n">300+</div><div class="l">проектов за плечами</div></div>
+    <div class="stat"><div class="n">20</div><div class="l">стран, где работает продукт</div></div>
+  </div>
+  <div class="ph ph-placeholder" style="position:absolute;right:0;top:0;width:620px;height:900px;"></div>
+  <div class="page">28</div>
+</section>
+
+</div>
+</body>
+</html>

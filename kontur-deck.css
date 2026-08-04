@@ -1,0 +1,310 @@
+/* Kontur Deck — канонический CSS (путь HTML → PNG/PDF).
+   Слайды 16:9, 1600×900. Тема: <body class="k-dark"> или "k-light", либо класс на .slide.
+   Montserrat подтягивается из Google Fonts при рендере (Chromium с сетью); Arial fallback.
+   Обкатано на боевых деках стратсессии УМ 14-15.07.2026 (60+ слайдов). */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+
+:root{
+  --k-dark-bg:#1C1C22; --k-dark-block:#34353F;
+  --k-light-bg:#FFFFFF; --k-light-block:#F1F1F1;
+  --k-grey:#9E9E9E; --k-grey2:#595959; --k-grey3:#4C4C4C;
+  --purple:#844BEC; --teal:#00BEA2; --orange:#FC7630;
+  --blue:#366AF3; --blue-light:#2291FF; --magenta:#B850CF;
+  --red:#FF0000; --plum:#6B1D45;
+  --pad:96px;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:Montserrat,Arial,Helvetica,sans-serif;background:#0e0e12;}
+.deck{display:flex;flex-direction:column;gap:40px;padding:40px;align-items:center;}
+.slide{width:1600px;height:900px;position:relative;overflow:hidden;border-radius:4px;--accent:var(--purple);}
+
+/* themes */
+body.k-dark .slide, .slide.dark{background:var(--k-dark-bg);color:var(--k-light-bg);}
+body.k-light .slide, .slide.light{background:var(--k-light-bg);color:#000;}
+.slide .muted{color:var(--k-grey);}
+
+/* ведущий акцент слайда: один на слайд. Меняется классом на .slide */
+.acc-purple{--accent:var(--purple)} .acc-teal{--accent:var(--teal)}
+.acc-orange{--accent:var(--orange)} .acc-blue{--accent:var(--blue)}
+.acc-magenta{--accent:var(--magenta)} .acc-plum{--accent:var(--plum)}
+.c-acc{color:var(--accent)} .bg-acc{background:var(--accent)}
+
+/* service chrome */
+.brand{position:absolute;left:var(--pad);top:56px;font-weight:600;font-size:22px;letter-spacing:-.01em;}
+.page{position:absolute;right:64px;bottom:48px;font-size:18px;color:var(--k-grey);}
+.klabel{font-size:16px;text-transform:uppercase;letter-spacing:.06em;font-weight:600;color:var(--k-grey);}
+.footnote{position:absolute;left:var(--pad);bottom:52px;font-size:17px;color:var(--k-grey2);max-width:1100px;line-height:1.3;}
+
+/* typography */
+.slide h1{margin:0;font-weight:600;font-size:92px;line-height:1.02;letter-spacing:-.03em;}
+.slide h2{margin:0;font-weight:600;font-size:60px;line-height:1.05;letter-spacing:-.02em;}
+.slide h3{margin:0;font-weight:600;font-size:34px;line-height:1.1;letter-spacing:-.01em;}
+.slide p{margin:0;font-size:26px;line-height:1.35;font-weight:400;}
+.slide .big-num{font-weight:600;font-size:200px;line-height:.9;letter-spacing:-.04em;}
+.slide .unit{font-size:56px;font-weight:500;color:var(--k-grey);}
+
+/* точечные цветовые хелперы (для мультикарточек, где акценты разные) */
+.c-purple{color:var(--purple)} .c-teal{color:var(--teal)} .c-orange{color:var(--orange)}
+.c-blue{color:var(--blue)} .c-bluelight{color:var(--blue-light)} .c-magenta{color:var(--magenta)}
+.bg-purple{background:var(--purple)} .bg-teal{background:var(--teal)} .bg-orange{background:var(--orange)}
+.bg-blue{background:var(--blue)} .bg-bluelight{background:var(--blue-light)} .bg-magenta{background:var(--magenta)} .bg-plum{background:var(--plum)}
+.plus{position:absolute;font-weight:400;line-height:1;opacity:.9;} /* декоративный «+» */
+
+/* ---------- LAYOUTS ---------- */
+
+/* Титул */
+.s-title .body{position:absolute;left:var(--pad);top:300px;width:1100px;}
+.s-title h1{font-size:104px;}
+.s-title .sub{margin-top:34px;font-size:30px;color:var(--k-grey);max-width:900px;}
+.s-title .accent-block{position:absolute;right:0;top:0;width:520px;height:900px;}
+
+/* Раздел / divider */
+.s-divider .num-section{position:absolute;left:var(--pad);top:150px;font-weight:600;font-size:280px;line-height:.8;opacity:.14;}
+.s-divider .title{position:absolute;left:var(--pad);bottom:150px;width:1200px;}
+
+/* Крупный тезис */
+.s-thesis{display:grid;place-items:center;text-align:center;}
+.s-thesis .body{max-width:1300px;padding:0 var(--pad);}
+.s-thesis h1{font-size:88px;}
+
+/* 2 цифры крупно */
+.s-num2 .top{position:absolute;left:var(--pad);top:120px;}
+.s-num2 .cols{position:absolute;left:var(--pad);right:var(--pad);bottom:150px;display:grid;grid-template-columns:1fr 1fr;gap:80px;}
+.s-num2 .num-label{font-size:26px;color:var(--k-grey);margin-top:18px;}
+
+/* 6 важных цифр (сетка 3×2) */
+.s-num6 .top{position:absolute;left:var(--pad);top:110px;}
+.s-num6 .grid{position:absolute;left:var(--pad);right:var(--pad);bottom:110px;display:grid;grid-template-columns:repeat(3,1fr);gap:56px 72px;}
+.s-num6 .cell .n{font-weight:600;font-size:96px;line-height:1;letter-spacing:-.03em;}
+.s-num6 .cell .l{font-size:22px;color:var(--k-grey);margin-top:10px;}
+
+/* Карточки (2/3) */
+.s-cards .top{position:absolute;left:var(--pad);top:120px;width:1400px;}
+.s-cards .cards{position:absolute;left:var(--pad);right:var(--pad);bottom:110px;display:grid;gap:28px;}
+.s-cards.c3 .cards{grid-template-columns:repeat(3,1fr);}
+.s-cards.c2 .cards{grid-template-columns:repeat(2,1fr);}
+.s-cards .card{border-radius:22px;padding:40px;min-height:380px;color:#fff;}
+.slide.light .s-cards .card.neutral,body.k-light .s-cards .card.neutral{background:var(--k-light-block);color:#000;}
+.slide.dark .s-cards .card.neutral,body.k-dark .s-cards .card.neutral{background:var(--k-dark-block);color:#fff;}
+.s-cards .card .icon{width:64px;height:64px;margin-bottom:26px;}
+.s-cards .card h3{margin-bottom:16px;}
+.s-cards .card p{font-size:22px;line-height:1.35;}
+
+/* Колонки текста (2/3) */
+.s-cols .top{position:absolute;left:var(--pad);top:120px;width:1400px;}
+.s-cols .cols{position:absolute;left:var(--pad);right:var(--pad);bottom:120px;display:grid;gap:64px;}
+.s-cols.c3 .cols{grid-template-columns:repeat(3,1fr);}
+.s-cols.c2 .cols{grid-template-columns:repeat(2,1fr);}
+.s-cols .col h3{margin-bottom:14px;}
+.s-cols .col p{font-size:22px;color:var(--k-grey);}
+
+/* Нумерованный список-строки (замена «стены буллетов») */
+.s-list .top{position:absolute;left:var(--pad);top:110px;width:1400px;}
+.s-list .rows{position:absolute;left:var(--pad);right:var(--pad);top:250px;}
+.s-list .row{display:grid;grid-template-columns:96px 1fr;gap:28px;align-items:start;padding:26px 0;border-bottom:1px solid var(--k-dark-block);}
+body.k-light .s-list .row,.slide.light .s-list .row{border-bottom-color:var(--k-light-block);}
+.s-list .row:last-child{border-bottom:none;}
+.s-list .row .n{font-weight:600;font-size:44px;line-height:1;color:var(--accent);}
+.s-list .row .t{font-size:26px;line-height:1.3;}
+.s-list .row .t b{font-weight:600;}
+.s-list .row .t .note{display:block;font-size:20px;color:var(--k-grey);margin-top:6px;}
+
+/* Таблица */
+.s-table .top{position:absolute;left:var(--pad);top:100px;width:1400px;}
+.s-table .tbl{position:absolute;left:var(--pad);right:var(--pad);top:230px;}
+.s-table table{width:100%;border-collapse:collapse;}
+.s-table th{font-size:18px;text-transform:uppercase;letter-spacing:.05em;font-weight:600;color:var(--k-grey);text-align:left;padding:14px 20px;border-bottom:2px solid var(--k-grey3);}
+.s-table td{font-size:22px;line-height:1.3;padding:16px 20px;border-bottom:1px solid var(--k-dark-block);vertical-align:top;}
+body.k-light .s-table td,.slide.light .s-table td{border-bottom-color:var(--k-light-block);}
+.s-table td.key{font-weight:600;}
+
+/* Таймлайн / шаги */
+.s-timeline .top{position:absolute;left:var(--pad);top:120px;width:1400px;}
+.s-timeline .line{position:absolute;left:var(--pad);right:var(--pad);top:420px;height:2px;background:var(--k-grey3);}
+.s-timeline .steps{position:absolute;left:var(--pad);right:var(--pad);top:410px;display:grid;grid-auto-flow:column;grid-auto-columns:1fr;gap:32px;}
+.s-timeline .step .dot{width:22px;height:22px;border-radius:50%;background:var(--accent);margin-bottom:64px;}
+.s-timeline .step h3{font-size:28px;margin-bottom:10px;}
+.s-timeline .step p{font-size:20px;color:var(--k-grey);}
+
+/* Сплит: текст слева + панель справа */
+.s-split .top{position:absolute;left:var(--pad);top:120px;width:1400px;}
+.s-split .wrap{position:absolute;left:var(--pad);right:var(--pad);top:250px;bottom:100px;display:grid;grid-template-columns:1fr 560px;gap:72px;}
+.s-split .left p{font-size:25px;line-height:1.45;margin-bottom:22px;}
+.s-split .panel{border-radius:22px;padding:44px;background:var(--k-dark-block);}
+body.k-light .s-split .panel,.slide.light .s-split .panel{background:var(--k-light-block);}
+.s-split .panel h3{margin-bottom:18px;}
+.s-split .panel p{font-size:21px;line-height:1.4;}
+
+/* Цитата */
+.s-quote{display:grid;place-items:center;}
+.s-quote .body{max-width:1240px;padding:0 var(--pad);}
+.s-quote .mark{font-weight:600;font-size:160px;line-height:.5;color:var(--accent);display:block;margin-bottom:8px;}
+.s-quote blockquote{margin:0;font-weight:500;font-size:46px;line-height:1.25;letter-spacing:-.01em;}
+.s-quote .who{margin-top:30px;font-size:24px;color:var(--k-grey);}
+
+/* Фото на весь слайд / навылет */
+.s-photo{padding:0;}
+.s-photo img{width:100%;height:100%;object-fit:cover;}
+.s-photo .caption{position:absolute;left:var(--pad);bottom:90px;background:rgba(0,0,0,.55);color:#fff;padding:20px 30px;border-radius:14px;font-weight:600;font-size:36px;}
+
+/* Финальный */
+.s-final{display:grid;place-items:center;text-align:center;}
+.s-final h1{font-size:96px;}
+.s-final .contacts{margin-top:36px;font-size:28px;color:var(--k-grey);}
+
+/* Плейсхолдер фото в шаблонах: замени на background-image:url(...) */
+.ph-placeholder{background:linear-gradient(135deg,#3A3B46 0%,#26262E 100%);display:grid;place-items:center;}
+.ph-placeholder::before{content:'ФОТО';color:var(--k-grey2);font-size:28px;font-weight:600;letter-spacing:.1em;}
+
+/* Фото на полслайда: контент слева, фото справа (тёмная тема) */
+.s-photo-half .content{position:absolute;left:var(--pad);top:120px;width:620px;}
+.s-photo-half .content h2{margin-bottom:28px;}
+.s-photo-half .content p{font-size:24px;line-height:1.45;color:var(--k-grey);margin-bottom:18px;}
+.s-photo-half .ph{position:absolute;right:0;top:0;width:800px;height:900px;background-size:cover;background-position:center;}
+.s-photo-half .ph .edge{position:absolute;inset:0;background:linear-gradient(90deg,var(--k-dark-bg) 0%,transparent 16%);}
+
+/* Фото-оверлей на весь слайд: hero с крупным текстом поверх */
+.s-photo-overlay .ph{position:absolute;inset:0;background-size:cover;background-position:center;}
+.s-photo-overlay .veil{position:absolute;inset:0;background:linear-gradient(180deg,rgba(28,28,34,.2) 0%,rgba(28,28,34,.85) 80%);}
+.s-photo-overlay .body{position:absolute;left:var(--pad);right:var(--pad);bottom:110px;color:#fff;}
+.s-photo-overlay h1{font-size:84px;}
+.s-photo-overlay .sub{margin-top:20px;font-size:26px;color:rgba(255,255,255,.78);max-width:1000px;}
+
+/* Мега: одна гигантская цифра или слово */
+.s-mega{display:grid;place-items:center;text-align:center;}
+.s-mega .num{font-weight:600;font-size:400px;line-height:.85;letter-spacing:-.05em;}
+.s-mega .cap{margin-top:34px;font-size:30px;color:var(--k-grey);max-width:900px;}
+
+/* Столбчатая диаграмма из дивов (высота столбика: inline height в % на .fill) */
+.s-bars .top{position:absolute;left:var(--pad);top:110px;width:1400px;}
+.s-bars .chart{position:absolute;left:var(--pad);right:var(--pad);bottom:150px;height:460px;display:grid;grid-auto-flow:column;grid-auto-columns:1fr;gap:48px;align-items:end;}
+.s-bars .bar{display:flex;flex-direction:column;justify-content:flex-end;height:100%;}
+.s-bars .bar .v{font-weight:600;font-size:34px;margin-bottom:12px;}
+.s-bars .bar .fill{background:var(--k-dark-block);border-radius:10px 10px 0 0;}
+.s-bars .bar.hot .fill{background:var(--accent);}
+.s-bars .bar .l{position:absolute;bottom:-56px;font-size:20px;color:var(--k-grey);}
+.s-bars .bar{position:relative;}
+
+/* Орг-структура: корень, магистраль, ветки */
+.s-org .top{position:absolute;left:var(--pad);top:110px;width:1400px;}
+.s-org .tree{position:absolute;left:var(--pad);right:var(--pad);top:280px;display:flex;flex-direction:column;align-items:center;}
+.s-org .node{border-radius:16px;padding:22px 40px;background:var(--k-dark-block);font-size:24px;font-weight:600;text-align:center;}
+.s-org .node.root{background:var(--accent);color:#fff;}
+.s-org .trunk{width:2px;height:44px;background:var(--k-grey3);}
+.s-org .rail{height:2px;background:var(--k-grey3);width:75%;}
+.s-org .branches{display:grid;grid-auto-flow:column;grid-auto-columns:1fr;gap:32px;width:100%;}
+.s-org .branch{display:flex;flex-direction:column;align-items:center;}
+.s-org .branch .drop{width:2px;height:36px;background:var(--k-grey3);}
+.s-org .branch .node{font-weight:500;font-size:21px;width:100%;padding:20px 16px;}
+.s-org .branch .sub{margin-top:14px;font-size:18px;color:var(--k-grey);text-align:center;line-height:1.3;}
+
+/* Лесенка: ступени роста слева направо */
+.s-stairs .top{position:absolute;left:var(--pad);top:110px;width:1400px;}
+.s-stairs .steps{position:absolute;left:var(--pad);right:var(--pad);bottom:110px;display:grid;grid-template-columns:repeat(4,1fr);gap:24px;align-items:end;height:520px;}
+.s-stairs .st{border-radius:18px 18px 0 0;padding:28px;background:var(--k-dark-block);}
+.s-stairs .st.h1x{height:40%;} .s-stairs .st.h2x{height:60%;} .s-stairs .st.h3x{height:80%;} .s-stairs .st.h4x{height:100%;}
+.s-stairs .st.hot{background:var(--accent);}
+.s-stairs .st h3{font-size:26px;margin-bottom:10px;}
+.s-stairs .st p{font-size:19px;color:var(--k-grey);line-height:1.35;}
+.s-stairs .st.hot p{color:rgba(255,255,255,.85);}
+
+/* Бенто-композиция: 1 большая + 4 малых */
+.s-bento .top{position:absolute;left:var(--pad);top:100px;width:1400px;}
+.s-bento .grid{position:absolute;left:var(--pad);right:var(--pad);top:230px;bottom:90px;display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:1fr 1fr;gap:24px;}
+.s-bento .b{border-radius:20px;padding:32px;background:var(--k-dark-block);overflow:hidden;}
+.s-bento .b.wide{grid-column:span 2;grid-row:span 2;}
+.s-bento .b.hot{background:var(--accent);}
+.s-bento .b h3{font-size:28px;margin-bottom:12px;}
+.s-bento .b p{font-size:20px;color:var(--k-grey);line-height:1.35;}
+.s-bento .b.hot p{color:rgba(255,255,255,.85);}
+.s-bento .b .kn{font-weight:600;font-size:72px;line-height:1;letter-spacing:-.03em;margin-bottom:10px;}
+
+/* ===== v3 (2026-07-17): шаблоны из деки «Вопрос №3 КСР» и хакатон-формата ===== */
+
+/* Чип-лейбл над заголовком: один на слайд, цвет = ведущий акцент слайда */
+.chip{display:inline-flex;align-items:center;height:34px;border-radius:8px;padding:0 15px;font-size:15px;font-weight:600;letter-spacing:.02em;background:var(--accent);color:#fff;}
+.chip.ghost{background:transparent;border:1.5px solid var(--k-grey);color:var(--k-grey);}
+
+/* Обложка/финал с фирменной арт-панелью (референс «Принципы УМ»: текст слева, скруглённая графика справа) */
+.s-cover .head{position:absolute;left:var(--pad);top:110px;width:800px;}
+.s-cover .head .klabel{display:block;margin-bottom:40px;}
+.s-cover h1{font-size:104px;}
+.s-cover .sub{margin-top:34px;font-size:28px;color:var(--k-grey);max-width:760px;line-height:1.4;}
+.s-cover .wordmark{position:absolute;left:var(--pad);bottom:64px;height:48px;color:#FEFFFE;}
+.wordmark svg{height:100%;width:auto;display:block;}
+.wordmark svg path{fill:currentColor;}
+.brand svg{height:24px;width:auto;display:block;margin-top:2px;}
+.brand svg path{fill:currentColor;}
+.artblock{position:absolute;right:28px;top:28px;bottom:28px;width:620px;border-radius:32px;overflow:hidden;}
+.artblock svg{width:100%;height:100%;display:block;}
+
+/* Пилюли: реестр однородных сущностей (продукты, команды, регионы). 8-16 штук, сетка 4×N */
+.s-pills .top{position:absolute;left:var(--pad);top:120px;width:1400px;}
+.s-pills .top .sub{margin-top:18px;font-size:24px;color:var(--k-grey);}
+.s-pills .pills{position:absolute;left:var(--pad);right:var(--pad);top:280px;display:grid;grid-template-columns:repeat(4,1fr);gap:24px;align-content:start;}
+.s-pills .pill{border-radius:18px;background:var(--k-dark-block);padding:26px 24px;font-size:24px;font-weight:500;line-height:1.25;display:grid;place-items:center;text-align:center;min-height:104px;}
+
+/* Сетка фактов + акцентная панель (референс «Общий результат в приоритете»): 6 карточек 2×3 + вывод справа */
+.s-grid-panel .top{position:absolute;left:var(--pad);top:110px;width:1400px;}
+.s-grid-panel .wrap{position:absolute;left:var(--pad);right:var(--pad);top:250px;bottom:100px;display:grid;grid-template-columns:1fr 440px;gap:28px;}
+.s-grid-panel .grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
+.s-grid-panel .item{border-radius:18px;background:var(--k-dark-block);padding:26px 30px;display:flex;flex-direction:column;justify-content:center;}
+.s-grid-panel .item b{font-size:25px;font-weight:600;display:block;margin-bottom:8px;}
+.s-grid-panel .item span{font-size:19px;color:var(--k-grey);line-height:1.3;}
+.s-grid-panel .panel{border-radius:22px;background:var(--accent);padding:40px;color:#fff;}
+.s-grid-panel .panel h3{font-size:30px;margin-bottom:24px;}
+.s-grid-panel .panel ul{margin:0;padding-left:26px;}
+.s-grid-panel .panel li{font-size:22px;line-height:1.4;margin-bottom:18px;}
+
+/* Полноцветный дивайдер (хакатон-формат): фон = акцент, гигантский полупрозрачный номер.
+   Для teal/orange добавь класс dark-ink (тёмный текст). Для длинных дек со сменой частей. */
+body.k-dark .slide.s-divider-full,body.k-light .slide.s-divider-full,.slide.s-divider-full{background:var(--accent);color:#fff;}
+.s-divider-full .brand{color:rgba(255,255,255,.7);}
+.s-divider-full .num{position:absolute;right:70px;top:30px;font-size:340px;font-weight:700;letter-spacing:-.06em;line-height:.8;color:rgba(255,255,255,.16);}
+.s-divider-full .cap{position:absolute;left:var(--pad);bottom:150px;width:1000px;z-index:3;}
+.s-divider-full .cap .chip{background:rgba(255,255,255,.2);color:#fff;margin-bottom:26px;}
+.s-divider-full .cap h1{font-size:86px;}
+.s-divider-full .cap .sub{margin-top:24px;font-size:28px;opacity:.85;max-width:860px;line-height:1.3;}
+body.k-dark .slide.s-divider-full.dark-ink,body.k-light .slide.s-divider-full.dark-ink,.slide.s-divider-full.dark-ink{color:#141414;}
+.s-divider-full.dark-ink .brand{color:rgba(0,0,0,.5);}
+.s-divider-full.dark-ink .num{color:rgba(0,0,0,.1);}
+.s-divider-full.dark-ink .cap .chip{background:rgba(0,0,0,.14);color:#141414;}
+
+/* Крупный скриншот со сплитом (хакатон-формат): текст слева, скрин уходит за правый край */
+.s-shot-split .txt{position:absolute;left:var(--pad);top:150px;width:520px;z-index:3;}
+.s-shot-split .txt .chip{margin-bottom:26px;}
+.s-shot-split .txt h2{font-size:44px;}
+.s-shot-split .txt p{margin-top:22px;font-size:22px;line-height:1.42;color:var(--k-grey);}
+.s-shot-split .note{position:absolute;left:var(--pad);bottom:96px;width:480px;z-index:3;font-size:17px;color:var(--k-grey2);line-height:1.4;}
+.s-shot-split .vis{position:absolute;left:690px;top:70px;bottom:70px;right:0;z-index:2;display:flex;align-items:center;}
+.s-shot-split .vis img{height:100%;max-width:none;border-radius:16px 0 0 16px;border:1px solid rgba(255,255,255,.14);border-right:none;box-shadow:0 30px 90px rgba(0,0,0,.55);}
+.s-shot-split .vis .ph{height:100%;width:910px;border-radius:16px 0 0 16px;}
+
+/* Скриншот-витрина: заголовок + скрин 70-80% площади слайда */
+.s-shot .top{position:absolute;left:var(--pad);top:110px;width:1400px;}
+.s-shot .frame{position:absolute;left:var(--pad);right:var(--pad);top:240px;bottom:120px;border-radius:22px;overflow:hidden;background:var(--k-dark-block);}
+.s-shot .frame img{width:100%;height:100%;object-fit:cover;object-position:center top;}
+.s-shot .frame .ph{width:100%;height:100%;}
+.s-shot .cap{position:absolute;left:var(--pad);bottom:60px;font-size:18px;color:var(--k-grey);}
+
+/* Спикер: имя и роль + стат-чипы слева, фото на треть слайда справа (хакатон-формат) */
+.s-speaker .info{position:absolute;left:var(--pad);top:130px;width:820px;}
+.s-speaker .info .chip{margin-bottom:28px;}
+.s-speaker h1{font-size:72px;}
+.s-speaker .role{margin-top:18px;font-size:24px;color:var(--k-grey);max-width:760px;}
+.s-speaker .stats{position:absolute;left:var(--pad);bottom:110px;width:860px;display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+.s-speaker .stat{background:var(--k-dark-block);border-radius:18px;padding:30px;}
+.s-speaker .stat.hot{background:var(--accent);}
+.s-speaker .stat .n{font-size:56px;font-weight:600;letter-spacing:-.03em;line-height:.95;color:var(--accent);}
+.s-speaker .stat.hot .n{color:#fff;}
+.s-speaker .stat .l{font-size:17px;color:var(--k-grey);margin-top:12px;line-height:1.3;}
+.s-speaker .stat.hot .l{color:rgba(255,255,255,.85);}
+.s-speaker .ph{position:absolute;right:0;top:0;width:620px;height:900px;background-size:cover;background-position:center top;}
+
+/* PDF-рендер (Playwright page.pdf использует print media): страница = слайд.
+   НЕ УДАЛЯТЬ: без этого блока padding/gap обёртки .deck сдвигают нарезку (Pages = slides + 1). */
+@media print {
+  body{background:var(--k-dark-bg);}
+  .deck{padding:0 !important;gap:0 !important;}
+  .slide{page-break-after:always;border-radius:0;}
+}
